@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- This makes the page auto refresh -->
     <!-- <meta http-equiv="refresh" content="5"> -->
-    <title>Trivia Trivia!</title>
-    <!-- <link rel="icon" href="assets/images/8-bit-link.png" type="image/x-icon"> -->
+    <title>Disney Trivia!</title>
+    <link rel="icon" href="assets/images/icon.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
@@ -18,29 +18,30 @@
             <div class="row text-center">
                 <div class="col-10 offset-1" id="fullGame">
                     <div class="row">
-                        <div class="col-12" id="title">Trivia!</div>
+                        <div class="col-12" id="title">
+                            <h1>Disney Trivia!</h1></div>
                     </div>
                     <div class="row">
-                        <div class="col-12" id="timer"> Timer </div>
+                        <div class="col-3 offset-4" id="timer"></div>
+                        <div class="col-1" id="secondsRemaining"></div>
                     </div>
                     <div class="row">
-                        <div class="col-12" id="question">Questions go Here</div>
-                        <div class="col-12" id="yesOrNo"></div>
+                        <div class="col-12" id="questionDisplay"></div>
                     </div>
                     <div class="row">
+                        <div class="col-4 offset-4 text-center"><span id="startButton"><h1>Start</h1></span></div>
                         <div class="col-12" id="answers"> </div>
-                        <div class="col-12" id="correct">
+                        <!-- <div class="col-12" id="correct">
                             <div class="row">
                                 <div class="col-12" id="correctAnswer"></div>
                                 <div class="col-12" id="correctGif"></div>
-                            </div>
-                        </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+    </div>
 </body>
 <script src="assets/javascript/jquery-3.1.1.min.js"></script>
 <script src="assets/javascript/tether.js"></script>

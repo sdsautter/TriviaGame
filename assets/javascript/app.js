@@ -98,7 +98,7 @@ var questionArray = [{
 var trashArray = [];
 
 
-var timer = 20;
+var timer = 30;
 var questionIndex = 0;
 var numberCorrect = 0;
 var numberWrong = 0;
@@ -201,7 +201,7 @@ function newGame() {
         console.log(trashArray);
 
     } else {
-        timer = 15;
+        timer = 30;
         setTimer();
         pickQuestion();
 

@@ -16,7 +16,7 @@ var questionArray = [{
             "1955"
         ],
         correctIndex: 3,
-        explanation:"To all who come to this happy place: Welcome. Disneyland is your land. Here age relives fond memories of the past, and here youth may savor the challenge and promise of the future. - Walter E. Disney, July 17, 1955",
+        explanation:"\"To all who come to this happy place: Welcome. Disneyland is your land. Here age relives fond memories of the past, and here youth may savor the challenge and promise of the future.\" - Walter E. Disney, July 17, 1955",
         rightGif: "assets/images/disneyland.gif"
     }, {
         question: "Which is not owned by Disney?",

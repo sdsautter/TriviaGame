@@ -159,7 +159,7 @@ function pickQuestion() {
     for (var i = 0; i < questionArray[questionIndex].answers.length; i++) {
         var answerDisplay = $("<div>");
         answerDisplay.addClass("answer");
-        answerDisplay.addClass("col-6 offset-3")
+        answerDisplay.addClass("col-12 col-md-6 offset-md-3")
         answerDisplay.attr("value", i);
         answerDisplay.html("<h2>" + questionArray[questionIndex].answers[i] + "</h2>")
         $("#answers").append(answerDisplay);
@@ -196,7 +196,7 @@ function newGame() {
                 newGame();
             },
 
-            1000);
+            5000);
 
         console.log(trashArray);
 

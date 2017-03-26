@@ -10,7 +10,7 @@ body {
 #fullGame {
 	border: 1px dotted black;
 	background-color: rgba(234,244,246, 0.3);
-	margin-top: 5%;
+	padding-top: 1%;	
 
 }
 
@@ -25,6 +25,7 @@ img {
 
 #title h1 {
 	font-size: 4.5em;
+	margin-top: 1%;
 }
 
 #questionDisplay {

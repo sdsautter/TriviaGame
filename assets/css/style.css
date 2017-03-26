@@ -1,82 +1,79 @@
-@font-face { font-family: Disney; src: url('../fonts/waltograph42.ttf');} 
-
-
-body {
-	background-image: url("../images/background.gif");
-	font-family: Disney;
+@font-face {
+    font-family: Disney;
+    src: url('../fonts/waltograph42.ttf');
 }
 
+body {
+    background-image: url("../images/background.gif");
+    font-family: Disney;
+}
 
 #fullGame {
-	/*border: 1px dotted black;*/
-	background-color: rgba(234,244,246, 0.3);
-	padding-top: 1%;	
-
+    /*border: 1px dotted black;*/
+    background-color: rgba(234, 244, 246, 0.3);
+    padding-top: 1%;
 }
 
 .col-12 {
-	padding: 2%;
+    padding: 2%;
 }
 
 img {
-	width: 500px;
-	max-width: 90%;
+    width: 500px;
+    max-width: 90%;
 }
 
 #title h1 {
-	font-size: 4.5em;
-	margin-top: 1%;
+    font-size: 4.5em;
+    margin-top: 1%;
 }
 
 #questionDisplay {
-	font-size: 2em;
+    font-size: 2em;
 }
 
 .answer {
-	margin-top: 2%;
-	border: 5px solid #eaf4f6;
-	background-color: rgba(255,255,255, 0.5);
+    margin-top: 2%;
+    border: 5px solid #eaf4f6;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .answer:hover {
-	background-color: rgba(255,255,255, 1.0);
-	color: red;
+    background-color: rgba(255, 255, 255, 1.0);
+    color: red;
 }
 
 #answer:active {
-	background-color: rgba(255,255,255, 1.0);
-	color:green;
+    background-color: rgba(255, 255, 255, 1.0);
+    color: green;
 }
 
-@media only screen and (min-width : 320px) {
-        #title h1 {
-        	font-size: 3.5em;
-        }
-
-        #questionDisplay h2 {
-        	font-size: .75em;
-        }
-
-        #timer h2 {
-        	padding-top: 6%;
-        	font-size: 1.2em;
-
-        }
+@media only screen and (min-width: 320px) {
+    #title h1 {
+        font-size: 3.5em;
     }
-
-    @media only screen and (min-width : 720px) {
-       #title h1 {
-	font-size: 4.5em;
-	margin-top: 1%;
+    #questionDisplay h2 {
+        font-size: .75em;
+    }
+    #timer h2 {
+        padding-top: 6%;
+        font-size: 1.2em;
+    }
 }
 
-
-        #questionDisplay h2 {
-        	font-size: 1.3em;
-        }
-
-        #timer h2 {
-        	padding-top: 0;
-        	font-size: 2.2em;
-        }
+@media only screen and (min-width: 720px) {
+    #title h1 {
+        font-size: 4.5em;
+        margin-top: 1%;
     }
+    #questionDisplay h2 {
+        font-size: 1.3em;
+    }
+    #timer h2 {
+        padding-top: 0;
+        font-size: 2.2em;
+    }
+    #fullGame {
+        border: 1px dotted black;
+    }
+}

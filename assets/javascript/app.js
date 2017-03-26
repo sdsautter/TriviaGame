@@ -6,6 +6,7 @@ var questionArray = [{
             "Fantasia"
         ],
         correctIndex: 2,
+        explanation:"Before Snow White and the Seven Dwarfs, the Disney studio had been primarily involved in the production of animated short subjects in the Mickey Mouse and Silly Symphonies series.",
         rightGif: "assets/images/snow-white.gif"
     }, {
         question: "What year did Disneyland open?",
@@ -15,6 +16,7 @@ var questionArray = [{
             "1955"
         ],
         correctIndex: 3,
+        explanation:"To all who come to this happy place: Welcome. Disneyland is your land. Here age relives fond memories of the past, and here youth may savor the challenge and promise of the future. - Walter E. Disney, July 17, 1955",
         rightGif: "assets/images/disneyland.gif"
     }, {
         question: "Which is not owned by Disney?",
@@ -24,6 +26,7 @@ var questionArray = [{
             "ESPN"
         ],
         correctIndex: 1,
+        explanation:"Disney has been a distributor for Studio Ghibli since the 1980s, but they do not own them.",
         rightGif: "assets/images/studio-ghibli.gif"
     }, {
         question: "Which animated film first used the xerography technique to keep production cost down?",
@@ -34,15 +37,17 @@ var questionArray = [{
             "The Sword and the Stone"
         ],
         correctIndex: 0,
+        explanation:"Walt Disney considered shutting down the animation division before testing out the new way to photocopy cells on 101 Dalmatians.",
         rightGif: "assets/images/101-dalmatians.gif"
     }, {
         question: "Which movie did not win the Oscar for Best Animated Feature?",
         answers: ["Big Hero 6",
             "Finding Nemo",
             "Toy Story 3",
-            "Monsters Inc."
+            "Monsters, Inc."
         ],
         correctIndex: 3,
+        explanation:"Monsters, Inc. won the Academy Award for Original Song, but Shrek won for Animated Feature.",
         rightGif: "assets/images/monsters-inc.gif"
     }, {
         question: "Which movie did not receive the Academy Award nomination for Best Picture",
@@ -52,6 +57,7 @@ var questionArray = [{
             "Up"
         ],
         correctIndex: 2,
+        explanation:"The Lion King was nominated four times and won two Oscars, but it was for Original Song and Original Score.",
         rightGif: "assets/images/the-lion-king.gif"
     }, {
         question: "Who helped write the music for Tarzan (1999)?",
@@ -61,6 +67,7 @@ var questionArray = [{
             "Tim Rice"
         ],
         correctIndex: 1,
+        explanation:"All four have helped write music for Disney animated films, but Phil Collins wrote songs for Tarzan.",
         rightGif: "assets/images/tarzan.gif"
     }, {
         question: "What was Disney's first full live action feature?",
@@ -70,6 +77,7 @@ var questionArray = [{
             "Marry Poppins"
         ],
         correctIndex: 0,
+        explanation:"Treasure Island was the first full live action feature film",
         rightGif: "assets/images/treasure-island.gif"
     }, {
         question: "What year did Walt Disney World open?",
@@ -80,6 +88,7 @@ var questionArray = [{
             "1954",
         ],
         correctIndex: 1,
+        explanation:"Disney World opened up in 1971 in Orlando, Florida.",
         rightGif: "assets/images/disney-world.gif"
     }, {
         question: "Which actor was Aladdin's face modeled after?",
@@ -90,6 +99,7 @@ var questionArray = [{
             "Scott Weigner"
         ],
         correctIndex: 2,
+        explanation:"Although Scott Weigner is the voice for Aladdin, his face was actually modeled after Tom Cruise.",
         rightGif: "assets/images/aladdin.gif"
     },
 
@@ -219,12 +229,18 @@ function endGame() {
         $("#secondsRemaining").html("");
         $("#questionDisplay").html("<h2>Correct!</h2>");
         $("#answers").html("");
-        var bootCol = $("<div>");
-        bootCol.attr("class", "col-12 col-md-6 offset-md-3");
+        var explanationCol = $("<div>");
+        explanationCol.attr("class", "col-12");
+        explanationCol.attr("id", "explanation");
+        explanationCol.html("<h2>" + questionArray[questionIndex].explanation + "</h2>");
+
+        var gifCol = $("<div>");
+        gifCol.attr("class", "col-12 col-md-6 offset-md-3");
         var gif = $("<img>");
         gif.attr("src", questionArray[questionIndex].rightGif);
-        bootCol.append(gif);
-        $("#answers").append(bootCol);
+        gifCol.append(gif);
+        $("#questionDisplay").append(explanationCol);
+        $("#questionDisplay").append(gifCol);
         rightChoice = false;
         trashArray.push(questionArray[questionIndex]);
         questionArray.splice(questionIndex, 1);
@@ -238,13 +254,24 @@ function endGame() {
         $("#timer").html("");
         $("#secondsRemaining").html("");
         $("#answers").html("");
-        var bootCol = $("<div>");
-        bootCol.attr("class", "col-12 col-md-6 offset-md-3");
+        $("#questionDisplay").html("<h2>Wrong!</h2>");
+
+        var explanationCol = $("<div>");
+        explanationCol.attr("class", "col-12");
+        explanationCol.attr("id", "explanation");
+
+        explanationCol.html("<h2>" + questionArray[questionIndex].explanation + "</h2>");
+
+
+        var gifCol = $("<div>");
+        gifCol.attr("class", "col-12 col-md-6 offset-md-3");
         var gif = $("<img>");
         gif.attr("src", questionArray[questionIndex].rightGif);
-        bootCol.append(gif);
-        $("#answers").append(bootCol);
-        $("#questionDisplay").html("<h2>Wrong!</h2>");
+        gifCol.append(gif);
+
+        $("#questionDisplay").append(explanationCol);
+
+        $("#questionDisplay").append(gifCol);
         trashArray.push(questionArray[questionIndex]);
 
         questionArray.splice(questionIndex, 1);

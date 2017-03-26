@@ -190,8 +190,16 @@ function newGame() {
         $("#timer").html("");
         $("#secondsRemaining").html("");
         $("#questionDisplay").html("<h2>Game Over</h2>");
+        var correctDisplay = $("<div>");
+        correctDisplay.attr("class", "col-12 text-center");
+        correctDisplay.html("<h2>Correct: " + numberCorrect + "</h2>");
+        var wrongDisplay = $("<div>");
+        wrongDisplay.attr("class", "col-12 text-center");
+        wrongDisplay.html("<h2>Wrong: " + numberWrong + "</h2>");
 
-        $("#answers").html("<h2>Correct: " + numberCorrect + "</h2> <br> <h2>Wrong: " + numberWrong + "</h2>");
+
+        $("#answers").append(correctDisplay);
+        $("#answers").append(wrongDisplay);
 
         for (var i = 0; i < 10; i++) {
             questionArray.push(trashArray[0]);
@@ -206,7 +214,7 @@ function newGame() {
                 newGame();
             },
 
-            5000);
+            10000);
 
         console.log(trashArray);
 
@@ -247,7 +255,7 @@ function endGame() {
         setTimeout(function() {
             $("#answers").html("");
             newGame();
-        }, 4000);
+        }, 7500);
     } else {
 
         numberWrong++;
@@ -279,7 +287,7 @@ function endGame() {
         setTimeout(function() {
             $("#answers").html("");
             newGame();
-        }, 4000);
+        }, 7500);
 
     }
 

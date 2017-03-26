@@ -6,7 +6,7 @@ var questionArray = [{
             "Fantasia"
         ],
         correctIndex: 2,
-        rightGif: "TO DO"
+        rightGif: "assets/images/snow-white.gif"
     }, {
         question: "What year did Disneyland open?",
         answers: ["1972",
@@ -15,7 +15,7 @@ var questionArray = [{
             "1955"
         ],
         correctIndex: 3,
-        rightGif: ""
+        rightGif: "assets/images/disneyland.gif"
     }, {
         question: "Which is not owned by Disney?",
         answers: ["Star Wars",
@@ -24,7 +24,7 @@ var questionArray = [{
             "ESPN"
         ],
         correctIndex: 1,
-        rightGif: ""
+        rightGif: "assets/images/studio-ghibli.gif"
     }, {
         question: "Which animated film first used the xerography technique to keep production cost down?",
         answers: [
@@ -34,16 +34,16 @@ var questionArray = [{
             "The Sword and the Stone"
         ],
         correctIndex: 0,
-        rightGif: ""
+        rightGif: "assets/images/101-dalmatians.gif"
     }, {
         question: "Which movie did not win the Oscar for Best Animated Feature?",
-        answers: ["Big Hero 6", 
-            "Finding Nemo", 
-            "Toy Story 3", 
+        answers: ["Big Hero 6",
+            "Finding Nemo",
+            "Toy Story 3",
             "Monsters Inc."
         ],
         correctIndex: 3,
-        rightGif: ""
+        rightGif: "assets/images/monsters-inc.gif"
     }, {
         question: "Which movie did not receive the Academy Award nomination for Best Picture",
         answers: ["Toy Story 3",
@@ -52,7 +52,7 @@ var questionArray = [{
             "Up"
         ],
         correctIndex: 2,
-        rightGif: ""
+        rightGif: "assets/images/the-lion-king.gif"
     }, {
         question: "Who helped write the music for Tarzan (1999)?",
         answers: ["Elton John",
@@ -61,7 +61,7 @@ var questionArray = [{
             "Tim Rice"
         ],
         correctIndex: 1,
-        rightGif: ""
+        rightGif: "assets/images/tarzan.gif"
     }, {
         question: "What was Disney's first full live action feature?",
         answers: ["Treasure Island",
@@ -70,9 +70,9 @@ var questionArray = [{
             "Marry Poppins"
         ],
         correctIndex: 0,
-        rightGif: ""
+        rightGif: "assets/images/treasure-island.gif"
     }, {
-        question: "What year did DisneyWorld open?",
+        question: "What year did Walt Disney World open?",
         answers: ["1969",
 
             "1971",
@@ -80,7 +80,7 @@ var questionArray = [{
             "1954",
         ],
         correctIndex: 1,
-        rightGif: ""
+        rightGif: "assets/images/disney-world.gif"
     }, {
         question: "Which actor was Aladdin's face modeled after?",
         answers: [
@@ -90,7 +90,7 @@ var questionArray = [{
             "Scott Weigner"
         ],
         correctIndex: 2,
-        rightGif: ""
+        rightGif: "assets/images/aladdin.gif"
     },
 
 ];
@@ -115,25 +115,25 @@ function setTimer() {
         setInterval(function() {
 
 
-        timer--;
+            timer--;
 
 
-        if (timer > 0) {
+            if (timer > 0) {
 
-            $("#secondsRemaining").html("<h2>" + timer + "</h2>");
-        } else if (timer === 0) {
-            endGame();
-        }
+                $("#secondsRemaining").html("<h2>" + timer + "</h2>");
+            } else if (timer === 0) {
+                endGame();
+            }
 
 
-    }, 1000);
+        }, 1000);
 
-    timerSet = true;
-}
+        timerSet = true;
+    }
 }
 
 function guessCheck(guess) {
-    
+
     timer = "";
     console.log(questionArray[questionIndex].correctIndex);
     // console.log($(this).attr("value"));
@@ -149,7 +149,7 @@ function guessCheck(guess) {
     }
 }
 
-function pickQuestion () {
+function pickQuestion() {
 
     questionIndex = Math.floor(Math.random() * questionArray.length);
 
@@ -161,50 +161,52 @@ function pickQuestion () {
         answerDisplay.addClass("answer");
         answerDisplay.addClass("col-6 offset-3")
         answerDisplay.attr("value", i);
-        answerDisplay.html("<h2>"+questionArray[questionIndex].answers[i]+"</h2>")
+        answerDisplay.html("<h2>" + questionArray[questionIndex].answers[i] + "</h2>")
         $("#answers").append(answerDisplay);
     }
 
 
-//On click for the answer class
-$(".answer").click(function(event) {
-    //when something with an answer class is clicked it puts its value into the guessCheck function
-    guessCheck($(this).attr("value"));
+    //On click for the answer class
+    $(".answer").click(function(event) {
+        //when something with an answer class is clicked it puts its value into the guessCheck function
+        guessCheck($(this).attr("value"));
 
-});
+    });
 }
 
 function newGame() {
-    if (questionArray.length === 0 ){
+    if (questionArray.length === 0) {
 
         $("#timer").html("");
         $("#secondsRemaining").html("");
         $("#questionDisplay").html("<h2>Game Over</h2>");
-        
+
         $("#answers").html("<h2>Correct: " + numberCorrect + "</h2> <br> <h2>Wrong: " + numberWrong + "</h2>");
 
-       for (var i = 0; i < 10; i++){
-        questionArray.push(trashArray[0]);
-        trashArray.splice(0, 1);
-       }
+        for (var i = 0; i < 10; i++) {
+            questionArray.push(trashArray[0]);
+            trashArray.splice(0, 1);
+        }
 
-       numberCorrect = 0;
-       numberWrong = 0;
+        numberCorrect = 0;
+        numberWrong = 0;
 
-        setTimeout(function(){
-            $("#answers").html("");
-            newGame();} , 
+        setTimeout(function() {
+                $("#answers").html("");
+                newGame();
+            },
 
             1000);
 
         console.log(trashArray);
 
-     } else  {
-      timer = 5;
-    setTimer();
-    pickQuestion();
+    } else {
+        timer = 5;
+        $("#answers").html("");
+        setTimer();
+        pickQuestion();
 
-}
+    }
 
 
 }
@@ -217,24 +219,35 @@ function endGame() {
         $("#timer").html("");
         $("#secondsRemaining").html("");
         $("#questionDisplay").html("<h1>Correct!</h2>");
-        $("#answers").html("");
+        $("#answers").html("<img src='" + questionArray[questionIndex].rightGif + "'>");
+        // var gif = $("<img>");
+        // gif.attr("src", questionArray[questionIndex].rightGif);
+        // $("#answers").append(gif);
         rightChoice = false;
         trashArray.push(questionArray[questionIndex]);
         questionArray.splice(questionIndex, 1);
-        setTimeout(function(){newGame();} , 1000);
+        setTimeout(function() {
+            $("#answers").html("");
+            newGame();
+        }, 4000);
     } else {
 
         numberWrong++;
-         $("#timer").html("");
+        $("#timer").html("");
         $("#secondsRemaining").html("");
         $("#answers").html("");
-       
+        var gif = $("<img>");
+        gif.attr("src", questionArray[questionIndex].rightGif);
+        $("#answers").append(gif);
         $("#questionDisplay").html("<h1>Wrong!</h2>");
         trashArray.push(questionArray[questionIndex]);
 
         questionArray.splice(questionIndex, 1);
 
-        setTimeout(function(){newGame();} , 1000);
+        setTimeout(function() {
+            $("#answers").html("");
+            newGame();
+        }, 4000);
 
     }
 

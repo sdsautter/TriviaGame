@@ -15,3 +15,8 @@ body {
 .col-12 {
 	padding: 2%;
 }
+
+img {
+	width: 500px;
+	max-width: 90%;
+}

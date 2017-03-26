@@ -8,8 +8,10 @@ body {
 
 
 #fullGame {
-	border: 1px solid black;
+	border: 1px dotted black;
+	background-color: rgba(234,244,246, 0.3);
 	margin-top: 5%;
+
 }
 
 .col-12 {
@@ -20,3 +22,28 @@ img {
 	width: 500px;
 	max-width: 90%;
 }
+
+#title h1 {
+	font-size: 4.5em;
+}
+
+#questionDisplay {
+	font-size: 2em;
+}
+
+.answer {
+	margin-top: 2%;
+	border: 5px solid #eaf4f6;
+	background-color: rgba(255,255,255, 0.5);
+}
+
+.answer:hover {
+	background-color: rgba(255,255,255, 1.0);
+	color: red;
+}
+
+#answer:active {
+	background-color: rgba(255,255,255, 1.0);
+	color:green;
+}
+

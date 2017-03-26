@@ -98,7 +98,7 @@ var questionArray = [{
 var trashArray = [];
 
 
-var timer = 30;
+var timer = 20;
 var questionIndex = 0;
 var numberCorrect = 0;
 var numberWrong = 0;
@@ -153,7 +153,7 @@ function pickQuestion() {
 
     questionIndex = Math.floor(Math.random() * questionArray.length);
 
-    $("#questionDisplay").html(questionArray[questionIndex].question);
+    $("#questionDisplay").html("<h2>" + questionArray[questionIndex].question + "</h2>");
 
     //Loops the answers into the html, giving it a value of that loop to check against the correctIndex
     for (var i = 0; i < questionArray[questionIndex].answers.length; i++) {
@@ -201,8 +201,7 @@ function newGame() {
         console.log(trashArray);
 
     } else {
-        timer = 5;
-        $("#answers").html("");
+        timer = 15;
         setTimer();
         pickQuestion();
 
@@ -219,10 +218,10 @@ function endGame() {
         $("#timer").html("");
         $("#secondsRemaining").html("");
         $("#questionDisplay").html("<h1>Correct!</h2>");
-        $("#answers").html("<img src='" + questionArray[questionIndex].rightGif + "'>");
-        // var gif = $("<img>");
-        // gif.attr("src", questionArray[questionIndex].rightGif);
-        // $("#answers").append(gif);
+        $("#answers").html("");
+        var gif = $("<img>");
+        gif.attr("src", questionArray[questionIndex].rightGif);
+        $("#answers").append(gif);
         rightChoice = false;
         trashArray.push(questionArray[questionIndex]);
         questionArray.splice(questionIndex, 1);

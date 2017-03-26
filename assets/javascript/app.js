@@ -159,7 +159,7 @@ function pickQuestion() {
     for (var i = 0; i < questionArray[questionIndex].answers.length; i++) {
         var answerDisplay = $("<div>");
         answerDisplay.addClass("answer");
-        answerDisplay.addClass("col-12 col-md-6 offset-md-3")
+        answerDisplay.addClass("col-12 col-md-6")
         answerDisplay.attr("value", i);
         answerDisplay.html("<h2>" + questionArray[questionIndex].answers[i] + "</h2>")
         $("#answers").append(answerDisplay);
@@ -217,11 +217,14 @@ function endGame() {
 
         $("#timer").html("");
         $("#secondsRemaining").html("");
-        $("#questionDisplay").html("<h1>Correct!</h2>");
+        $("#questionDisplay").html("<h2>Correct!</h2>");
         $("#answers").html("");
+        var bootCol = $("<div>");
+        bootCol.attr("class", "col-12 col-md-6 offset-md-3");
         var gif = $("<img>");
         gif.attr("src", questionArray[questionIndex].rightGif);
-        $("#answers").append(gif);
+        bootCol.append(gif);
+        $("#answers").append(bootCol);
         rightChoice = false;
         trashArray.push(questionArray[questionIndex]);
         questionArray.splice(questionIndex, 1);
@@ -235,10 +238,13 @@ function endGame() {
         $("#timer").html("");
         $("#secondsRemaining").html("");
         $("#answers").html("");
+        var bootCol = $("<div>");
+        bootCol.attr("class", "col-12 col-md-6 offset-md-3");
         var gif = $("<img>");
         gif.attr("src", questionArray[questionIndex].rightGif);
-        $("#answers").append(gif);
-        $("#questionDisplay").html("<h1>Wrong!</h2>");
+        bootCol.append(gif);
+        $("#answers").append(bootCol);
+        $("#questionDisplay").html("<h2>Wrong!</h2>");
         trashArray.push(questionArray[questionIndex]);
 
         questionArray.splice(questionIndex, 1);

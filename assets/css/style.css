@@ -48,3 +48,14 @@ img {
 	color:green;
 }
 
+@media only screen and (min-width : 320px) {
+        #title h1 {
+        	font-size: 3.5em;
+        }
+    }
+
+    @media only screen and (min-width : 720px) {
+        #title h1 {
+        	font-size: 4.5em;
+        }
+    }

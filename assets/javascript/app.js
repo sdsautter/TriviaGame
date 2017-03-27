@@ -145,16 +145,11 @@ function setTimer() {
 function guessCheck(guess) {
 
     timer = "";
-    console.log(questionArray[questionIndex].correctIndex);
-    // console.log($(this).attr("value"));
-    console.log(guess);
     if (parseInt(guess) === questionArray[questionIndex].correctIndex) {
-        console.log("correct");
         rightChoice = true;
         endGame();
     } else {
         rightChoice = false;
-        console.log("wrong");
         endGame();
     }
 }
@@ -216,7 +211,6 @@ function newGame() {
 
             10000);
 
-        console.log(trashArray);
 
     } else {
         timer = 30;

@@ -2,105 +2,95 @@
 
 var questionArray = [{
         question: "What was Disney's first full length animated film?",
-        answers: ["Steamboat Willie",
-            "Cinderella",
-            "Snow White and the Seven Dwarfs",
-            "Fantasia"
+        answers: [{movie: "Steamboat Willie", correct: false},
+            {movie: "Cinderella", correct: false},
+            {movie: "Snow White and the Seven Dwarfs", correct: true},
+            {movie: "Fantasia", correct: false}
         ],
-        correctIndex: 2,
         explanation:"Before Snow White and the Seven Dwarfs, the Disney studio had been primarily involved in the production of animated short subjects in the Mickey Mouse and Silly Symphonies series.",
         rightGif: "assets/images/snow-white.gif"
     }, {
         question: "What year did Disneyland open?",
-        answers: ["1972",
-            "1938",
-            "1945",
-            "1955"
+        answers: [{movie: "1971", correct: false},
+            {movie: "1938", correct: false},
+            {movie: "1945", correct: false},
+            {movie: "1955", correct: true}
         ],
-        correctIndex: 3,
         explanation:"\"To all who come to this happy place: Welcome. Disneyland is your land. Here age relives fond memories of the past, and here youth may savor the challenge and promise of the future.\" - Walter E. Disney, July 17, 1955",
         rightGif: "assets/images/disneyland.gif"
     }, {
         question: "Which is not owned by Disney?",
-        answers: ["Star Wars",
-            "Studio Ghibli",
-            "The Muppets",
-            "ESPN"
+        answers: [{movie: "Star Wars", correct: false},
+            {movie: "Studio Ghibli", correct: true},
+            {movie: "The Muppets", correct: false},
+            {movie: "ESPN", correct: false}
         ],
-        correctIndex: 1,
         explanation:"Disney has been a distributor for Studio Ghibli since the 1980s, but they do not own them.",
         rightGif: "assets/images/studio-ghibli.gif"
     }, {
         question: "Which animated film first used the xerography technique to keep production cost down?",
         answers: [
-            "101 Dalmatians",
-            "Sleeping Beauty",
-            "Robin Hood",
-            "The Sword and the Stone"
+            {movie: "101 Dalmatians", correct: true},
+            {movie: "Sleeping Beauty", correct: false},
+            {movie: "Robin Hood", correct: false},
+            {movie: "The Sword and the Stone", correct: false}
         ],
-        correctIndex: 0,
         explanation:"Walt Disney considered shutting down the animation division before testing out the new way to photocopy cells on 101 Dalmatians.",
         rightGif: "assets/images/101-dalmatians.gif"
     }, {
         question: "Which movie did not win the Oscar for Best Animated Feature?",
-        answers: ["Big Hero 6",
-            "Finding Nemo",
-            "Toy Story 3",
-            "Monsters, Inc."
+        answers: [{movie: "Big Hero 6", correct: false},
+            {movie: "Finding Nemo", correct: false},
+            {movie: "Toy Story 3", correct: false},
+            {movie: "Monsters, Inc.", correct: true}
         ],
-        correctIndex: 3,
         explanation:"Monsters, Inc. won the Academy Award for Original Song, but Shrek won for Animated Feature.",
         rightGif: "assets/images/monsters-inc.gif"
     }, {
         question: "Which movie did not receive the Academy Award nomination for Best Picture",
-        answers: ["Toy Story 3",
-            "Beauty and the Beast",
-            "The Lion King",
-            "Up"
+        answers: [{movie: "Toy Story 3", correct: false},
+            {movie: "Beauty and the Beast", correct: false},
+            {movie: "The Lion King", correct: true},
+            {movie: "Up",  correct: false}
         ],
-        correctIndex: 2,
         explanation:"The Lion King was nominated four times and won two Oscars, but it was for Original Song and Original Score.",
         rightGif: "assets/images/the-lion-king.gif"
     }, {
         question: "Who helped write the music for Tarzan (1999)?",
-        answers: ["Elton John",
-            "Phil Collins",
-            "Randy Newman",
-            "Tim Rice"
+        answers: [{movie: "Elton John", correct: false},
+            {movie: "Phil Collins", correct: true},
+            {movie: "Randy Newman", correct: false},
+            {movie: "Tim Rice", correct: false}
         ],
-        correctIndex: 1,
         explanation:"All four have helped write music for Disney animated films, but Phil Collins wrote songs for Tarzan.",
         rightGif: "assets/images/tarzan.gif"
     }, {
         question: "What was Disney's first full live action feature?",
-        answers: ["Treasure Island",
-            "Old Yeller",
-            "20,000 Leagues Under the Sea",
-            "Marry Poppins"
+        answers: [{movie: "Treasure Island", correct: true},
+            {movie: "Old Yeller", correct: false},
+            {movie: "20,000 Leagues Under the Sea", correct: false},
+            {movie: "Marry Poppins", correct: false}
         ],
-        correctIndex: 0,
         explanation:"Treasure Island was the first full live action feature film",
         rightGif: "assets/images/treasure-island.gif"
     }, {
         question: "What year did Walt Disney World open?",
-        answers: ["1969",
+        answers: [{movie: "1969", correct: false},
 
-            "1971",
-            "1973",
-            "1954",
+            {movie: "1971", correct: true},
+            {movie: "1973", correct: false},
+            {movie: "1955", correct: false}
         ],
-        correctIndex: 1,
         explanation:"Disney World opened up in 1971 in Orlando, Florida.",
         rightGif: "assets/images/disney-world.gif"
     }, {
         question: "Which actor was Aladdin's face modeled after?",
         answers: [
-            "Matthew Broderick",
-            "Kurt Russell",
-            "Tom Cruise",
-            "Scott Weigner"
+            {movie: "Matthew Broderick", correct: false},
+            {movie: "Kurt Russell", correct: false},
+            {movie: "Tom Cruise", correct: true},
+            {movie: "Scott Weigner", correct: false}
         ],
-        correctIndex: 2,
         explanation:"Although Scott Weigner is the voice for Aladdin, his face was actually modeled after Tom Cruise.",
         rightGif: "assets/images/aladdin.gif"
     },
@@ -152,9 +142,8 @@ function setTimer() {
 //in the correct index
 
 function guessCheck(guess) {
-
     timer = "";
-    if (parseInt(guess) === questionArray[questionIndex].correctIndex) {
+    if (questionArray[questionIndex].answers[guess].correct) {
         rightChoice = true;
         endGame();
     } else {
@@ -171,13 +160,13 @@ function pickQuestion() {
 
     $("#questionDisplay").html("<h2>" + questionArray[questionIndex].question + "</h2>");
 
-    //Loops the answers into the html, giving it a value of that loop to check against the correctIndex
+    //Loops the answers into the html, giving it a value of that loop to check for the guess check 
     for (var i = 0; i < questionArray[questionIndex].answers.length; i++) {
         var answerDisplay = $("<div>");
         answerDisplay.addClass("answer");
         answerDisplay.addClass("col-12 col-md-6")
-        answerDisplay.attr("value", i);
-        answerDisplay.html("<h2>" + questionArray[questionIndex].answers[i] + "</h2>")
+        answerDisplay.attr("data-id", i);
+        answerDisplay.html("<h2>" + questionArray[questionIndex].answers[i].movie + "</h2>")
         $("#answers").append(answerDisplay);
     }
 
@@ -185,7 +174,7 @@ function pickQuestion() {
     //On click for the answer class
     $(".answer").click(function(event) {
         //when something with an answer class is clicked it puts its value into the guessCheck function
-        guessCheck($(this).attr("value"));
+        guessCheck($(this).attr("data-id"));
 
     });
 }

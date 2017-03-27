@@ -1,3 +1,5 @@
+//Creates the initial array of questions and answers
+
 var questionArray = [{
         question: "What was Disney's first full length animated film?",
         answers: ["Steamboat Willie",
@@ -105,9 +107,11 @@ var questionArray = [{
 
 ];
 
+
+//The array that each question will be pushed into after it is selected
 var trashArray = [];
 
-
+//Sets up the initial global variables
 var timer = 30;
 var questionIndex = 0;
 var numberCorrect = 0;
@@ -115,12 +119,13 @@ var numberWrong = 0;
 var rightChoice = false;
 var timerSet = false;
 
-
+//Function that starts the timer to count down and also displays the timer up to
 function setTimer() {
     $("#timer").html("<h2>Seconds Remaining: </h2>");
 
     $("#secondsRemaining").html("<h2>" + timer + " </h2>");
 
+    //If the timer hasn't already started moving, then this starts it. This stops it from adding on multiples of counting down.
     if (!timerSet) {
         setInterval(function() {
 
@@ -142,6 +147,10 @@ function setTimer() {
     }
 }
 
+
+//Function to guess whether or not the pick was right or not by cross-referencing the value in what was selected with the number
+//in the correct index
+
 function guessCheck(guess) {
 
     timer = "";
@@ -154,6 +163,8 @@ function guessCheck(guess) {
     }
 }
 
+
+//This function chooses the questions at random
 function pickQuestion() {
 
     questionIndex = Math.floor(Math.random() * questionArray.length);
@@ -179,9 +190,12 @@ function pickQuestion() {
     });
 }
 
+
+//This is the game function that checks to see if the game is over, and if it isn't it runs the timer function and question function
 function newGame() {
     if (questionArray.length === 0) {
 
+        //If the game is over then you get this game over screen which shows how many you got right and wrong and restarts everything after 10 seconds by pushing the trash array back into the question array 
         $("#timer").html("");
         $("#secondsRemaining").html("");
         $("#questionDisplay").html("<h2>Game Over</h2>");
@@ -222,6 +236,9 @@ function newGame() {
 
 }
 
+
+//This runs after a choice is made, and depending on the whether it's right or wrong you will be told if you got it right, the explanation for the correct answer, and a gif. The number of correct or wrong also gets added up by. This screen will last for 7.5 seconds before starting the new game function again.
+
 function endGame() {
 
     if (rightChoice) {
@@ -231,6 +248,8 @@ function endGame() {
         $("#secondsRemaining").html("");
         $("#questionDisplay").html("<h2>Correct!</h2>");
         $("#answers").html("");
+
+        //This sets up the explanation div to append to the question display.
         var explanationCol = $("<div>");
         explanationCol.attr("class", "col-12");
         explanationCol.attr("id", "explanation");
@@ -241,8 +260,10 @@ function endGame() {
         var gif = $("<img>");
         gif.attr("src", questionArray[questionIndex].rightGif);
         gifCol.append(gif);
+
         $("#questionDisplay").append(explanationCol);
         $("#questionDisplay").append(gifCol);
+        
         rightChoice = false;
         trashArray.push(questionArray[questionIndex]);
         questionArray.splice(questionIndex, 1);
@@ -257,6 +278,8 @@ function endGame() {
         $("#secondsRemaining").html("");
         $("#answers").html("");
         $("#questionDisplay").html("<h2>Wrong!</h2>");
+        
+        //This sets up the explanation div to append to the question display.
 
         var explanationCol = $("<div>");
         explanationCol.attr("class", "col-12");

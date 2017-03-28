@@ -71,7 +71,7 @@ var questionArray = [{
             {movie: "20,000 Leagues Under the Sea", correct: false},
             {movie: "Marry Poppins", correct: false}
         ],
-        explanation:"Treasure Island was the first full live action feature film",
+        explanation:"Treasure Island is notable for being Disney's first completely live-action film and the first screen version of Treasure Island made in color.",
         rightGif: "assets/images/treasure-island.gif"
     }, {
         question: "What year did Walt Disney World open?",
@@ -164,6 +164,7 @@ function pickQuestion() {
     //Loops the answers into the html, giving it a value of that loop to check for the guess check 
     for (var i = 0; i < 4; i++) {
         
+        //gets random index number for movie
         var randomMovieIndex = Math.floor(Math.random() * questionArray[questionIndex].answers.length);
         var answerDisplay = $("<div>");
         answerDisplay.addClass("answer");
@@ -171,10 +172,13 @@ function pickQuestion() {
         answerDisplay.attr("data-id", i);
         answerDisplay.html("<h2>" + questionArray[questionIndex].answers[randomMovieIndex].movie + "</h2>");
         $("#answers").append(answerDisplay);
+
+        //pushes the answer into a different array after it gets appended, and then removes itself so it can't be chosen again
         nameCheckArray.push(questionArray[questionIndex].answers[randomMovieIndex]);
         questionArray[questionIndex].answers.splice(randomMovieIndex, 1);
     }
 
+    //Pushes the name check array back to where it belongs in the original question database
     for (var i = 0; i < 4; i++) {
         questionArray[questionIndex].answers.push(nameCheckArray[0]);
         nameCheckArray.splice(0,1);

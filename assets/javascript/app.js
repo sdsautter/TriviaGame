@@ -100,6 +100,7 @@ var questionArray = [{
 
 //The array that each question will be pushed into after it is selected
 var trashArray = [];
+var nameCheckArray = [];
 
 //Sets up the initial global variables
 var timer = 30;
@@ -161,22 +162,32 @@ function pickQuestion() {
     $("#questionDisplay").html("<h2>" + questionArray[questionIndex].question + "</h2>");
 
     //Loops the answers into the html, giving it a value of that loop to check for the guess check 
-    for (var i = 0; i < questionArray[questionIndex].answers.length; i++) {
+    for (var i = 0; i < 4; i++) {
+        
+        var randomMovieIndex = Math.floor(Math.random() * questionArray[questionIndex].answers.length);
         var answerDisplay = $("<div>");
         answerDisplay.addClass("answer");
         answerDisplay.addClass("col-12 col-md-6")
         answerDisplay.attr("data-id", i);
-        answerDisplay.html("<h2>" + questionArray[questionIndex].answers[i].movie + "</h2>")
+        answerDisplay.html("<h2>" + questionArray[questionIndex].answers[randomMovieIndex].movie + "</h2>");
         $("#answers").append(answerDisplay);
+        nameCheckArray.push(questionArray[questionIndex].answers[randomMovieIndex]);
+        questionArray[questionIndex].answers.splice(randomMovieIndex, 1);
     }
 
+    for (var i = 0; i < 4; i++) {
+        questionArray[questionIndex].answers.push(nameCheckArray[0]);
+        nameCheckArray.splice(0,1);
 
+    }
+    
     //On click for the answer class
     $(".answer").click(function(event) {
         //when something with an answer class is clicked it puts its value into the guessCheck function
         guessCheck($(this).attr("data-id"));
 
     });
+
 }
 
 

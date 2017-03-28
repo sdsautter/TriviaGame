@@ -274,7 +274,7 @@ function endGame() {
         setTimeout(function() {
             $("#answers").html("");
             newGame();
-        }, 7500);
+        }, 6000);
     } else {
 
         numberWrong++;
@@ -308,7 +308,7 @@ function endGame() {
         setTimeout(function() {
             $("#answers").html("");
             newGame();
-        }, 7500);
+        }, 6000);
 
     }
 

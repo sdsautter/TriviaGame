@@ -43,7 +43,7 @@ console.log("         wnNeve                                rgo              nna
 console.log("          undandde                            sert              youNe     verg        ");
 console.log("             onnamak                          eyou              cry,nevergonna        ");
 console.log("   say        goodbyeNev                       ergo           nnatellalieandh         ");
-console.log("  urtyouN    evergonnagiveyouu                  p,n         evergon    n              ");
+console.log("  urtyouN    evergonnagiveyouu                  p,n         evergon                   ");
 console.log("  aletyoudownNev ergonnarunaroundandde           sert    youNeve                      ");
 console.log("  rgon namakeyoucry,n    evergonnasaygoo dbyeNevergonnatellali                        ");
 console.log("   eand  hurtyouNev         ergonnagive youup,nevergonnalet                           ");
